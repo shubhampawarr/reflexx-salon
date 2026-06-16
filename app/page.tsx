@@ -33,7 +33,7 @@ const services = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f7f1e8] text-[#17120d]">
+    <main className="min-h-screen overflow-x-hidden bg-[#f7f1e8] text-[#17120d]">
       {/* Navbar */}
       <header className="fixed left-0 top-0 z-50 w-full border-b border-black/10 bg-[#f7f1e8]/90 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
@@ -66,10 +66,10 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pb-10 pt-24 md:px-8 md:pb-14 md:pt-28">
+      <section className="relative overflow-hidden px-5 pb-12 pt-24 md:px-8 md:pb-14 md:pt-28">
         <div className="pointer-events-none absolute bottom-8 left-1/2 h-px w-[88%] -translate-x-1/2 bg-gradient-to-r from-transparent via-black/10 to-transparent" />
 
-        <div className="mx-auto grid max-w-7xl gap-7 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+        <div className="mx-auto grid max-w-7xl gap-9 md:grid-cols-[0.95fr_1.05fr] md:items-center">
           {/* Hero Content */}
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-medium text-black/60 shadow-sm">
@@ -132,13 +132,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Image - below text on mobile, right side on desktop */}
+          {/* Hero Image */}
           <div>
-            <div className="relative mx-auto max-w-md overflow-hidden rounded-[1.75rem] border border-black/10 bg-white p-2 shadow-2xl md:max-w-lg">
+            <div className="relative mx-auto w-full max-w-[340px] overflow-hidden rounded-[1.5rem] border border-black/10 bg-white p-2 shadow-xl md:max-w-lg md:rounded-[1.75rem] md:shadow-2xl">
               <div className="pointer-events-none absolute -right-5 -top-5 z-10 h-24 w-24 rounded-full border border-white/60" />
               <div className="pointer-events-none absolute -bottom-8 -left-8 z-10 h-32 w-32 rounded-full border border-white/40" />
 
-              <div className="aspect-[4/4.2] overflow-hidden rounded-[1.35rem] md:aspect-[4/4.45]">
+              <div className="aspect-[4/3.75] overflow-hidden rounded-[1.15rem] md:aspect-[4/4.45] md:rounded-[1.35rem]">
                 <img
                   src="/images/reflexx/hero.jpg"
                   alt="Reflexx salon interior"
@@ -162,7 +162,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mx-auto mt-3 grid max-w-md grid-cols-2 gap-3 text-center text-xs font-medium text-black/55 md:hidden">
+            <div className="mx-auto mt-3 grid max-w-[340px] grid-cols-2 gap-3 text-center text-xs font-medium text-black/55 md:hidden">
               <div className="rounded-2xl border border-black/10 bg-white/70 px-4 py-3">
                 Walk in ready
               </div>
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="px-4 py-12 md:px-8 md:py-20">
+      <section id="services" className="px-5 py-12 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col justify-between gap-5 md:mb-10 md:flex-row md:items-end">
             <div>
@@ -202,9 +202,9 @@ export default function Home() {
               <Link
                 href="/book"
                 key={service.title}
-                className="group overflow-hidden rounded-[1.35rem] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl md:rounded-[1.75rem]"
+                className="group overflow-hidden rounded-[1.25rem] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl md:rounded-[1.75rem]"
               >
-                <div className="aspect-[4/3.4] overflow-hidden bg-black/5 md:aspect-[4/3]">
+                <div className="aspect-[4/3] overflow-hidden bg-black/5">
                   <img
                     src={service.image}
                     alt={service.title}
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Experience / Vibe */}
-      <section id="experience" className="px-4 py-10 md:px-8 md:py-14">
+      <section id="experience" className="px-5 py-10 md:px-8 md:py-14">
         <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-black/10 bg-white p-4 shadow-sm md:p-5">
           <div className="grid gap-5 md:grid-cols-[0.85fr_1fr] md:items-center">
             <div className="relative overflow-hidden rounded-[1.5rem]">
@@ -236,7 +236,7 @@ export default function Home() {
               <img
                 src="/images/reflexx/hero.jpg"
                 alt="Reflexx salon setup"
-                className="h-full max-h-[330px] min-h-[240px] w-full object-cover md:max-h-[390px]"
+                className="h-full max-h-[260px] min-h-[200px] w-full object-cover md:max-h-[390px]"
               />
               <div className="absolute bottom-4 left-4 z-20 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-black shadow-lg">
                 Reflexx studio
@@ -288,7 +288,7 @@ export default function Home() {
       </section>
       
       {/* Contact */}
-      <section id="contact" className="px-4 py-12 md:px-8 md:py-20">
+      <section id="contact" className="px-5 py-12 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm md:p-12">
           <div className="grid gap-8 md:grid-cols-[1fr_0.8fr] md:items-center">
             <div>
