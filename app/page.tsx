@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import {
   ArrowRight,
-  CalendarCheck,
   Clock,
   MapPin,
   Scissors,
@@ -12,72 +11,54 @@ import {
 const services = [
   {
     title: 'Haircut',
-    description: 'Clean cuts and sharp styling.',
     price: 'From ₹299',
+    image: '/images/reflexx/haircut.jpg',
   },
   {
     title: 'Beard',
-    description: 'Trim, shape, and line-up.',
     price: 'From ₹199',
+    image: '/images/reflexx/beard.jpg',
   },
   {
     title: 'Hair Spa',
-    description: 'Relaxing hair and scalp care.',
     price: 'From ₹799',
+    image: '/images/reflexx/hair-spa.jpg',
   },
   {
     title: 'Facial',
-    description: 'Fresh cleanup and grooming.',
     price: 'From ₹699',
-  },
-];
-
-const highlights = [
-  {
-    icon: CalendarCheck,
-    title: 'Easy Booking',
-    description: 'Book your appointment in a few taps.',
-  },
-  {
-    icon: Clock,
-    title: 'Quick Service',
-    description: 'Choose a time that works for you.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Premium Grooming',
-    description: 'Clean, modern, and detail-focused.',
+    image: '/images/reflexx/facial.jpg',
   },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0b0b0b] text-white">
+    <main className="min-h-screen bg-[#f7f1e8] text-[#17120d]">
       {/* Navbar */}
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#0b0b0b]/85 backdrop-blur-xl">
+      <header className="fixed left-0 top-0 z-50 w-full border-b border-black/10 bg-[#f7f1e8]/90 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
           <Link
             href="/"
-            className="text-lg font-semibold tracking-[0.25em] md:text-xl"
+            className="text-lg font-bold tracking-[0.22em] md:text-xl"
           >
             REFLEXX
           </Link>
 
-          <div className="hidden items-center gap-8 text-sm text-white/70 md:flex">
-            <a href="#services" className="transition hover:text-white">
+          <div className="hidden items-center gap-8 text-sm font-medium text-black/60 md:flex">
+            <a href="#services" className="transition hover:text-black">
               Services
             </a>
-            <a href="#experience" className="transition hover:text-white">
+            <a href="#experience" className="transition hover:text-black">
               Experience
             </a>
-            <a href="#contact" className="transition hover:text-white">
+            <a href="#contact" className="transition hover:text-black">
               Contact
             </a>
           </div>
 
           <Link
             href="/book"
-            className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-white/85 active:scale-[0.98] md:px-5 md:text-sm"
+            className="rounded-full bg-black px-4 py-2 text-xs font-semibold text-white transition hover:bg-black/85 active:scale-[0.98] md:px-5 md:text-sm"
           >
             Book Now
           </Link>
@@ -85,33 +66,35 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden px-4 pb-12 pt-28 md:px-8 md:pt-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.14),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(180,140,90,0.16),transparent_35%)]" />
+      <section className="relative overflow-hidden px-4 pb-10 pt-24 md:px-8 md:pb-14 md:pt-28">
+        <div className="pointer-events-none absolute bottom-8 left-1/2 h-px w-[88%] -translate-x-1/2 bg-gradient-to-r from-transparent via-black/10 to-transparent" />
 
-        <div className="absolute left-1/2 top-[45%] h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 md:h-[560px] md:w-[560px]" />
-        <div className="absolute left-1/2 top-[45%] h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 md:h-[380px] md:w-[380px]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs text-white/70 md:mb-6 md:text-sm">
+        <div className="mx-auto grid max-w-7xl gap-7 md:grid-cols-[0.95fr_1.05fr] md:items-center">
+          {/* Hero Content */}
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-medium text-black/60 shadow-sm">
               <Scissors size={15} />
-              Modern grooming. Easy booking.
+              Salon & grooming studio
             </div>
 
-            <h1 className="text-[3.25rem] font-semibold leading-[0.92] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              Look sharp.
-              <span className="block text-white/50">Book fast.</span>
-            </h1>
-
-            <p className="mt-5 max-w-xl text-[15px] leading-7 text-white/65 md:mt-6 md:text-lg">
-              Book your Reflexx salon appointment in seconds. Choose your
-              service, pick a time, and walk in ready.
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-black/45 md:text-sm">
+              Reflexx by Parth
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-9 md:gap-4">
+            <h1 className="max-w-3xl text-[2.45rem] font-semibold leading-[0.96] tracking-tight text-black sm:text-5xl md:text-6xl lg:text-[4.65rem]">
+              Style that
+              <span className="block text-[#9b6b43]">reflects you.</span>
+            </h1>
+
+            <p className="mt-4 max-w-xl text-[15px] leading-7 text-black/60 md:text-base">
+              Haircuts, beard grooming, hair care, and salon services in
+              Kandivali West.
+            </p>
+
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/book"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/85 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:bg-black/85 active:scale-[0.98]"
               >
                 Book Appointment
                 <ArrowRight size={18} />
@@ -119,32 +102,72 @@ export default function Home() {
 
               <a
                 href="#services"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/10 active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white/70 px-7 py-4 text-sm font-semibold text-black transition hover:bg-white active:scale-[0.98]"
               >
                 View Services
               </a>
             </div>
 
-            <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 border-t border-white/10 pt-5 md:mt-10 md:gap-4 md:pt-6">
-              <div>
-                <p className="text-xl font-semibold md:text-2xl">4.8</p>
-                <p className="mt-1 text-[11px] leading-4 text-white/50 md:text-xs">
+            <div className="mt-7 grid max-w-md grid-cols-3 gap-0 rounded-[1.5rem] border border-black/10 bg-white/55 p-4 text-center shadow-sm backdrop-blur">
+              <div className="border-r border-black/10 px-2">
+                <p className="text-lg font-semibold md:text-xl">4.7</p>
+                <p className="mt-1 text-[11px] font-medium text-black/45">
                   Rating
                 </p>
               </div>
 
-              <div>
-                <p className="text-xl font-semibold md:text-2xl">10+</p>
-                <p className="mt-1 text-[11px] leading-4 text-white/50 md:text-xs">
-                  Services
+              <div className="border-r border-black/10 px-2">
+                <p className="text-lg font-semibold md:text-xl">55+</p>
+                <p className="mt-1 text-[11px] font-medium text-black/45">
+                  Reviews
                 </p>
               </div>
 
-              <div>
-                <p className="text-xl font-semibold md:text-2xl">7 Days</p>
-                <p className="mt-1 text-[11px] leading-4 text-white/50 md:text-xs">
+              <div className="px-2">
+                <p className="text-lg font-semibold md:text-xl">7 Days</p>
+                <p className="mt-1 text-[11px] font-medium text-black/45">
                   Open
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Hero Image - below text on mobile, right side on desktop */}
+          <div>
+            <div className="relative mx-auto max-w-md overflow-hidden rounded-[1.75rem] border border-black/10 bg-white p-2 shadow-2xl md:max-w-lg">
+              <div className="pointer-events-none absolute -right-5 -top-5 z-10 h-24 w-24 rounded-full border border-white/60" />
+              <div className="pointer-events-none absolute -bottom-8 -left-8 z-10 h-32 w-32 rounded-full border border-white/40" />
+
+              <div className="aspect-[4/4.2] overflow-hidden rounded-[1.35rem] md:aspect-[4/4.45]">
+                <img
+                  src="/images/reflexx/hero.jpg"
+                  alt="Reflexx salon interior"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/70 bg-white/90 p-4 shadow-xl backdrop-blur-xl">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black text-white">
+                    <Sparkles size={18} />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold">Premium grooming</p>
+                    <p className="mt-1 text-xs text-black/55">
+                      Clean cuts. Sharp finish. Easy booking.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mx-auto mt-3 grid max-w-md grid-cols-2 gap-3 text-center text-xs font-medium text-black/55 md:hidden">
+              <div className="rounded-2xl border border-black/10 bg-white/70 px-4 py-3">
+                Walk in ready
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white/70 px-4 py-3">
+                Book in seconds
               </div>
             </div>
           </div>
@@ -152,134 +175,158 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section id="services" className="px-4 py-16 md:px-8 md:py-24">
+      <section id="services" className="px-4 py-12 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-9 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end">
+          <div className="mb-8 flex flex-col justify-between gap-5 md:mb-10 md:flex-row md:items-end">
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white/40 md:text-sm">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
                 Services
               </p>
 
               <h2 className="max-w-2xl text-4xl font-semibold tracking-tight md:text-6xl">
-                Grooming made simple.
+                Choose your look.
               </h2>
             </div>
 
             <Link
               href="/book"
-              className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold transition hover:bg-white/10 active:scale-[0.98]"
+              className="inline-flex w-fit items-center gap-2 rounded-full border border-black/15 bg-white/70 px-6 py-3 text-sm font-semibold transition hover:bg-white active:scale-[0.98]"
             >
               Book Now
               <ArrowRight size={17} />
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
             {services.map((service) => (
-              <div
+              <Link
+                href="/book"
                 key={service.title}
-                className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white/[0.06] md:p-6"
+                className="group overflow-hidden rounded-[1.35rem] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl md:rounded-[1.75rem]"
               >
-                <div className="mb-6 flex items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
+                <div className="aspect-[4/3.4] overflow-hidden bg-black/5 md:aspect-[4/3]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
 
-                  <span className="shrink-0 rounded-full bg-white px-3 py-2 text-xs font-semibold text-black">
+                <div className="p-3 md:p-5">
+                  <h3 className="text-base font-semibold md:text-xl">
+                    {service.title}
+                  </h3>
+
+                  <span className="mt-2 inline-flex rounded-full bg-[#f0e2d1] px-3 py-1.5 text-[11px] font-semibold text-black md:text-xs">
                     {service.price}
                   </span>
                 </div>
-
-                <p className="text-sm leading-6 text-white/55">
-                  {service.description}
-                </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Experience */}
-      <section
-        id="experience"
-        className="border-y border-white/10 bg-white/[0.03] px-4 py-14 md:px-8 md:py-20"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-9">
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white/40 md:text-sm">
-              Experience
-            </p>
+      {/* Experience / Vibe */}
+      <section id="experience" className="px-4 py-10 md:px-8 md:py-14">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-black/10 bg-white p-4 shadow-sm md:p-5">
+          <div className="grid gap-5 md:grid-cols-[0.85fr_1fr] md:items-center">
+            <div className="relative overflow-hidden rounded-[1.5rem]">
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+              <img
+                src="/images/reflexx/hero.jpg"
+                alt="Reflexx salon setup"
+                className="h-full max-h-[330px] min-h-[240px] w-full object-cover md:max-h-[390px]"
+              />
+              <div className="absolute bottom-4 left-4 z-20 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-black shadow-lg">
+                Reflexx studio
+              </div>
+            </div>
 
-            <h2 className="max-w-2xl text-4xl font-semibold tracking-tight md:text-6xl">
-              Clean. Quick. Premium.
-            </h2>
-          </div>
+            <div className="px-1 py-3 text-center md:px-8 md:py-6">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
+                Experience
+              </p>
 
-          <div className="grid gap-4 md:grid-cols-3 md:gap-5">
-            {highlights.map((item) => {
-              const Icon = item.icon;
+              <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight md:text-5xl">
+                Clean space. Sharp service.
+              </h2>
 
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-[1.5rem] border border-white/10 bg-black/30 p-6 md:rounded-[1.75rem]"
-                >
-                  <div className="mb-5 inline-flex rounded-2xl bg-white p-3 text-black">
-                    <Icon size={21} />
-                  </div>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-black/60 md:text-base md:leading-7">
+                Reflexx brings together a comfortable salon setup, skilled
+                grooming, and simple online booking.
+              </p>
 
-                  <h3 className="text-lg font-semibold md:text-xl">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-white/55">
-                    {item.description}
+              <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3">
+                <div className="rounded-2xl border border-black/10 bg-[#f7f1e8] p-4">
+                  <Star className="mx-auto mb-3" size={20} />
+                  <h3 className="text-sm font-semibold">Trusted locally</h3>
+                  <p className="mt-2 text-xs leading-5 text-black/55">
+                    4.7 rating with 55+ reviews.
                   </p>
                 </div>
-              );
-            })}
+
+                <div className="rounded-2xl border border-black/10 bg-[#f7f1e8] p-4">
+                  <Clock className="mx-auto mb-3" size={20} />
+                  <h3 className="text-sm font-semibold">Open daily</h3>
+                  <p className="mt-2 text-xs leading-5 text-black/55">
+                    Visit any day of the week.
+                  </p>
+                </div>
+
+                <div className="col-span-2 rounded-2xl border border-black/10 bg-[#f7f1e8] p-4 md:col-span-1">
+                  <Scissors className="mx-auto mb-3" size={20} />
+                  <h3 className="text-sm font-semibold">Easy booking</h3>
+                  <p className="mt-2 text-xs leading-5 text-black/55">
+                    Select service, date, and time.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
+      
       {/* Contact */}
-      <section id="contact" className="px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl rounded-[1.75rem] border border-white/10 bg-white p-6 text-black md:rounded-[2rem] md:p-12">
-          <div className="grid gap-8 md:grid-cols-[1fr_0.8fr] md:items-center md:gap-10">
+      <section id="contact" className="px-4 py-12 md:px-8 md:py-20">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-black/10 bg-white p-6 shadow-sm md:p-12">
+          <div className="grid gap-8 md:grid-cols-[1fr_0.8fr] md:items-center">
             <div>
-              <div className="mb-4 flex items-center gap-2 text-sm font-semibold text-black/60">
-                <Star size={16} />
-                Ready for your next appointment?
-              </div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
+                Visit Reflexx
+              </p>
 
               <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">
-                Book your Reflexx slot.
+                Book your slot today.
               </h2>
 
               <p className="mt-5 max-w-2xl text-sm leading-6 text-black/60 md:text-base md:leading-7">
-                Choose your service and preferred time. We’ll keep your slot
-                ready.
+                Find us in Kandivali West and book your next grooming appointment
+                online.
               </p>
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-2xl bg-black/[0.04] p-5">
+              <div className="rounded-2xl border border-black/10 bg-[#f7f1e8] p-5">
                 <div className="mb-2 flex items-center gap-2 font-semibold">
                   <Clock size={18} />
                   Hours
                 </div>
 
-                <p className="text-sm leading-6 text-black/60 md:text-base">
-                  Monday to Sunday · 08:00 AM - 10:00 PM
+                <p className="text-sm leading-6 text-black/60">
+                  Monday to Sunday · 10:00 AM - 10:00 PM
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-black/[0.04] p-5">
+              <div className="rounded-2xl border border-black/10 bg-[#f7f1e8] p-5">
                 <div className="mb-2 flex items-center gap-2 font-semibold">
                   <MapPin size={18} />
                   Location
                 </div>
 
-                <p className="text-sm leading-6 text-black/60 md:text-base">
-                  Shop no. 4, A-Wing, CHS LTD, Mahatma Gandhi Rd, Kandivali, Mahanagar Nagar, Kandivali West, Mumbai, Maharashtra 400067
+                <p className="text-sm leading-6 text-black/60">
+                  Shop no. 4, A-Wing, CHS LTD, Mahatma Gandhi Rd, Kandivali,
+                  Mahanagar Nagar, Kandivali West, Mumbai, Maharashtra 400067
                 </p>
               </div>
 
@@ -295,15 +342,15 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="px-4 pb-24 pt-2 text-center text-sm text-white/40 md:px-8 md:pb-8">
+      <footer className="px-4 pb-24 pt-2 text-center text-sm text-black/45 md:px-8 md:pb-8">
         © {new Date().getFullYear()} Reflexx. All rights reserved.
       </footer>
 
       {/* Mobile Sticky Booking Bar */}
-      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-white/10 bg-[#0b0b0b]/95 p-4 backdrop-blur-xl md:hidden">
+      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-black/10 bg-[#f7f1e8]/95 p-4 backdrop-blur-xl md:hidden">
         <Link
           href="/book"
-          className="flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-semibold text-black transition active:scale-[0.98]"
+          className="flex w-full items-center justify-center gap-2 rounded-full bg-black px-6 py-4 text-sm font-semibold text-white transition active:scale-[0.98]"
         >
           Book Appointment
           <ArrowRight size={18} />

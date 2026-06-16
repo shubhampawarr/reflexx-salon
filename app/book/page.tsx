@@ -49,6 +49,9 @@ const timeSlots = [
   '07:00 PM',
   '07:30 PM',
   '08:00 PM',
+  '08:30 PM',
+  '09:00 PM',
+  '09:30 PM',
 ];
 
 function getTodayDate() {
@@ -97,32 +100,32 @@ export default function BookPage() {
 
   if (success && selectedService) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#0b0b0b] px-4 text-white">
-        <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 text-center">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-400/10 text-emerald-300">
+      <main className="flex min-h-screen items-center justify-center bg-[#f7f1e8] px-4 text-[#17120d]">
+        <div className="w-full max-w-md rounded-[2rem] border border-black/10 bg-white p-6 text-center shadow-xl">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
             <CheckCircle2 size={30} />
           </div>
 
           <h1 className="text-3xl font-semibold">Booking received</h1>
 
-          <p className="mt-4 text-sm leading-6 text-white/60">
+          <p className="mt-4 text-sm leading-6 text-black/60">
             Thank you, {customerName}. Your Reflexx appointment request has been
             created.
           </p>
 
-          <div className="mt-6 rounded-2xl bg-black/30 p-4 text-left text-sm">
+          <div className="mt-6 rounded-2xl bg-[#f7f1e8] p-4 text-left text-sm">
             <div className="flex justify-between gap-4 py-2">
-              <span className="text-white/45">Service</span>
+              <span className="text-black/45">Service</span>
               <span className="font-semibold">{selectedService.name}</span>
             </div>
 
             <div className="flex justify-between gap-4 py-2">
-              <span className="text-white/45">Date</span>
+              <span className="text-black/45">Date</span>
               <span className="font-semibold">{selectedDate}</span>
             </div>
 
             <div className="flex justify-between gap-4 py-2">
-              <span className="text-white/45">Time</span>
+              <span className="text-black/45">Time</span>
               <span className="font-semibold">{selectedTime}</span>
             </div>
           </div>
@@ -136,14 +139,14 @@ export default function BookPage() {
                 setCustomerName('');
                 setCustomerPhone('');
               }}
-              className="rounded-full bg-white px-6 py-4 text-sm font-semibold text-black"
+              className="rounded-full bg-black px-6 py-4 text-sm font-semibold text-white"
             >
               Book Again
             </button>
 
             <Link
               href="/"
-              className="rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white"
+              className="rounded-full border border-black/15 px-6 py-4 text-sm font-semibold text-black"
             >
               Back Home
             </Link>
@@ -154,15 +157,19 @@ export default function BookPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#0b0b0b] px-4 pb-28 pt-6 text-white">
+    <main className="min-h-screen bg-[#f7f1e8] px-4 pb-28 pt-6 text-[#17120d]">
       <div className="mx-auto max-w-2xl">
         <Link
           href="/"
-          className="mb-7 inline-flex items-center gap-2 text-sm text-white/60"
+          className="mb-7 inline-flex items-center gap-2 text-sm font-medium text-black/60"
         >
           <ArrowLeft size={17} />
           Back
         </Link>
+
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-black/40">
+          Reflexx
+        </p>
 
         <h1 className="text-4xl font-semibold tracking-tight">
           Book appointment
@@ -170,7 +177,7 @@ export default function BookPage() {
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-7">
           <section>
-            <h2 className="mb-3 text-sm font-semibold text-white/60">
+            <h2 className="mb-3 text-sm font-semibold text-black/60">
               Select service
             </h2>
 
@@ -183,16 +190,16 @@ export default function BookPage() {
                     key={service.id}
                     type="button"
                     onClick={() => setSelectedServiceId(service.id)}
-                    className={`rounded-2xl border p-4 text-left transition active:scale-[0.98] ${
+                    className={`rounded-2xl border p-4 text-left shadow-sm transition active:scale-[0.98] ${
                       isSelected
-                        ? 'border-white bg-white text-black'
-                        : 'border-white/10 bg-white/[0.04] text-white'
+                        ? 'border-black bg-black text-white'
+                        : 'border-black/10 bg-white text-black'
                     }`}
                   >
                     <p className="font-semibold">{service.name}</p>
                     <p
                       className={`mt-2 text-sm ${
-                        isSelected ? 'text-black/55' : 'text-white/45'
+                        isSelected ? 'text-white/60' : 'text-black/45'
                       }`}
                     >
                       ₹{service.price}
@@ -204,7 +211,7 @@ export default function BookPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-sm font-semibold text-white/60">
+            <h2 className="mb-3 text-sm font-semibold text-black/60">
               Select date
             </h2>
 
@@ -213,30 +220,24 @@ export default function BookPage() {
               min={getTodayDate()}
               value={selectedDate}
               onChange={(event) => setSelectedDate(event.target.value)}
-              className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none focus:border-white/40"
+              className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 text-black shadow-sm outline-none focus:border-black/40"
             />
           </section>
 
           <section>
-            <h2 className="mb-3 text-sm font-semibold text-white/60">
+            <h2 className="mb-3 text-sm font-semibold text-black/60">
               Select time
             </h2>
 
             <select
               value={selectedTime}
               onChange={(event) => setSelectedTime(event.target.value)}
-              className="w-full appearance-none rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none focus:border-white/40"
+              className="w-full appearance-none rounded-2xl border border-black/10 bg-white px-5 py-4 text-black shadow-sm outline-none focus:border-black/40"
             >
-              <option value="" className="bg-[#0b0b0b] text-white">
-                Choose time slot
-              </option>
+              <option value="">Choose time slot</option>
 
               {timeSlots.map((slot) => (
-                <option
-                  key={slot}
-                  value={slot}
-                  className="bg-[#0b0b0b] text-white"
-                >
+                <option key={slot} value={slot}>
                   {slot}
                 </option>
               ))}
@@ -244,7 +245,7 @@ export default function BookPage() {
           </section>
 
           <section>
-            <h2 className="mb-3 text-sm font-semibold text-white/60">
+            <h2 className="mb-3 text-sm font-semibold text-black/60">
               Your details
             </h2>
 
@@ -254,7 +255,7 @@ export default function BookPage() {
                 value={customerName}
                 onChange={(event) => setCustomerName(event.target.value)}
                 placeholder="Name"
-                className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none placeholder:text-white/35 focus:border-white/40"
+                className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 text-black shadow-sm outline-none placeholder:text-black/35 focus:border-black/40"
               />
 
               <input
@@ -268,26 +269,26 @@ export default function BookPage() {
                 placeholder="Phone number"
                 inputMode="numeric"
                 maxLength={10}
-                className="w-full rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 text-white outline-none placeholder:text-white/35 focus:border-white/40"
+                className="w-full rounded-2xl border border-black/10 bg-white px-5 py-4 text-black shadow-sm outline-none placeholder:text-black/35 focus:border-black/40"
               />
             </div>
           </section>
 
           <button
             type="submit"
-            className="hidden w-full rounded-full bg-white px-6 py-4 text-sm font-semibold text-black md:block"
+            className="hidden w-full rounded-full bg-black px-6 py-4 text-sm font-semibold text-white md:block"
           >
             Confirm Booking
           </button>
         </form>
       </div>
 
-      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-white/10 bg-[#0b0b0b]/95 p-4 backdrop-blur-xl md:hidden">
+      <div className="fixed bottom-0 left-0 z-50 w-full border-t border-black/10 bg-[#f7f1e8]/95 p-4 backdrop-blur-xl md:hidden">
         <div className="mx-auto max-w-2xl">
           <div className="mb-3 flex items-center justify-between gap-4 text-xs">
             <div>
               <p className="font-semibold">{selectedService?.name}</p>
-              <p className="mt-1 text-white/45">
+              <p className="mt-1 text-black/45">
                 {selectedTime || 'Select time'}
               </p>
             </div>
@@ -301,8 +302,8 @@ export default function BookPage() {
             disabled={!isFormReady}
             className={`w-full rounded-full px-6 py-4 text-sm font-semibold transition active:scale-[0.98] ${
               isFormReady
-                ? 'bg-white text-black'
-                : 'cursor-not-allowed bg-white/25 text-white/50'
+                ? 'bg-black text-white'
+                : 'cursor-not-allowed bg-black/20 text-black/40'
             }`}
           >
             Confirm Booking
